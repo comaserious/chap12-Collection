@@ -113,10 +113,15 @@ public class Application01 {
        /*필기.
        *  Iterator란?
        *  Collection 인터페이스의 iterator() 메소드를 이용해서 인스턴스를 생성 할 수 있다
+       *  인덱스로 관리되지 않는 컬렉션인경우 반복문을 통해서 요소에 하나씩 접근하지 못할때 주로 사용한다
+       *  인덱스를 사용하지 않고도 반복문을 사용하기 위한 목록을 만들어주는 역할이라고 보면된다
        *  hasNext() : 다음 요소를 가지고 있으면 true, 더이상 요소가 없으면 false를 반환
        *  next() : 다음 요소(값)을 반환*/
 
         Iterator<String> dIter = ((LinkedList<String>)stringList).descendingIterator();
+        //현재 stringList는 List 타입이다 하지만 descendingIterator() 메소드는 LinkedList 타입에만 존재하는 메소드임으로 List 타입에서 LinkedList클래스 타입으로 형변환
+        //그후 descendingIterator() 는 Iterator 타입을 반환 하기 때문에 dIter타입은 Iterator 이고 제네릭은 받는 값이 String 타입이기 때문에 <String>을 집어 넣은 것이다
+        //Iterator는 hasNext() 와 next() 메소드를 이용해서 List안에 있는 요소를 하나씩 접근할수 있다
 
         /*필기. 역순으로 정렬된 결과를 저장하기 위해 새로운 ArrayList를 만들어서 저장*/
         List<String> descList = new ArrayList<>();
